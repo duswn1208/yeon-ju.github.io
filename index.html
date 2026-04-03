@@ -81,11 +81,13 @@
   .bullets li strong { color: var(--text); font-weight: 500; }
   .result-tag { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 500; color: #1D9E75; background: rgba(29,158,117,0.1); border: 1px solid rgba(29,158,117,0.2); border-radius: 6px; padding: 4px 10px; margin-top: 1rem; margin-right: 6px; }
 
-  .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; }
+  .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
   .skill-group { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1.25rem; }
-  .skill-group-title { font-size: 11px; font-weight: 600; letter-spacing: 1px; color: var(--accent); text-transform: uppercase; margin-bottom: 0.75rem; }
-  .skill-tags { display: flex; flex-wrap: wrap; gap: 6px; }
-  .skill-tag { font-size: 12px; color: var(--text); background: var(--bg3); border-radius: 6px; padding: 4px 10px; }
+  .skill-group-title { font-size: 13px; font-weight: 600; color: var(--accent2); margin-bottom: 0.75rem; }
+  .skill-desc { font-size: 13px; color: #b0b0c0; line-height: 1.8; margin-bottom: 0.5rem; }
+  .skill-bullets { list-style: none; display: flex; flex-direction: column; gap: 6px; margin-top: 0.5rem; }
+  .skill-bullets li { font-size: 13px; color: #b0b0c0; padding-left: 1.1rem; position: relative; line-height: 1.7; }
+  .skill-bullets li::before { content: '·'; position: absolute; left: 0; color: var(--accent); font-size: 14px; top: 0; }
 
   .timeline { display: flex; flex-direction: column; }
   .tl-item { display: flex; gap: 1.25rem; padding-bottom: 2rem; position: relative; }
@@ -316,33 +318,35 @@
   <h2 class="section-title">기술 스택</h2>
   <div class="skills-grid">
     <div class="skill-group fade-in">
-      <div class="skill-group-title">Frontend</div>
-      <div class="skill-tags">
-        <span class="skill-tag">JavaScript</span>
-        <span class="skill-tag">TypeScript</span>
-        <span class="skill-tag">React</span>
-        <span class="skill-tag">React Query</span>
-        <span class="skill-tag">React Hook Form</span>
-        <span class="skill-tag">Tailwind CSS</span>
-      </div>
+      <div class="skill-group-title">JavaScript / TypeScript</div>
+      <ul class="skill-bullets">
+        <li>순수 JS로 복잡한 편집기 도메인을 설계한 경험이 있으며, ES6 이후 문법에 익숙합니다.</li>
+        <li>TypeScript로 상태 전이 규칙을 Record 타입으로 중앙화하는 등 개발자의 실수를 줄이는 타입 설계를 지향합니다.</li>
+        <li>React Query, React Hook Form 등 생태계 라이브러리 활용에 익숙합니다.</li>
+      </ul>
     </div>
     <div class="skill-group fade-in">
-      <div class="skill-group-title">Backend</div>
-      <div class="skill-tags">
-        <span class="skill-tag">Java</span>
-        <span class="skill-tag">Spring Boot</span>
-        <span class="skill-tag">Python</span>
-        <span class="skill-tag">MongoDB</span>
-      </div>
+      <div class="skill-group-title">문제 해결 / 공통화</div>
+      <ul class="skill-bullets">
+        <li>반복되는 패턴을 발견하면 공통화하는 것을 좋아합니다. 발송 결과 조회 시스템의 매체 객체 파이프라인이 대표적인 사례입니다.</li>
+        <li>에러가 발생하면 단순 수정에 그치지 않고 원인을 추적합니다. 이슈 발생 시점과 배포 타이밍을 연결하는 방식으로 근본 원인을 찾습니다.</li>
+        <li>빠른 실행력을 강점으로 삼되, 꼼꼼함을 보완하기 위해 회고록을 작성합니다. 문서로 정리하면 이후 팀원의 동일 이슈 대응이 쉬워지고 본인도 더 명확하게 정리됩니다.</li>
+      </ul>
     </div>
     <div class="skill-group fade-in">
-      <div class="skill-group-title">Infra / Tools</div>
-      <div class="skill-tags">
-        <span class="skill-tag">Naver Cloud</span>
-        <span class="skill-tag">Linux</span>
-        <span class="skill-tag">Firebase</span>
-        <span class="skill-tag">Git</span>
-      </div>
+      <div class="skill-group-title">협업</div>
+      <ul class="skill-bullets">
+        <li>기획자·디자이너와 일할 때 근거 기반으로 쉽게 설명하려 노력합니다. 기술적 결정을 비개발 직군도 납득할 수 있는 언어로 전달하는 것을 중요하게 생각합니다.</li>
+        <li>개발 전 팀 내 공유 자리를 통해 방향을 먼저 맞추고 시작하는 문화를 지향합니다.</li>
+      </ul>
+    </div>
+    <div class="skill-group fade-in">
+      <div class="skill-group-title">DevOps / 기타</div>
+      <ul class="skill-bullets">
+        <li>이전 직장에서 Jenkins로 CI/CD 자동화를 직접 구축한 경험이 있습니다.</li>
+        <li>Naver Cloud, Linux 서버 관리, Firebase 등 인프라 전반을 1인으로 운영한 경험이 있습니다.</li>
+        <li>현재 Playwright 도입을 목표로 준비 중입니다.</li>
+      </ul>
     </div>
   </div>
 </section>
