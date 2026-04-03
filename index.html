@@ -67,13 +67,13 @@
   .badge-side { background: rgba(251,146,60,0.12); color: #fb923c; border: 1px solid rgba(251,146,60,0.25); }
   .project-stacks { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 1rem; }
   .stack { font-size: 11px; color: var(--muted); background: var(--bg3); border-radius: 4px; padding: 2px 8px; }
-  .project-desc { font-size: 13px; color: var(--muted); margin-bottom: 1.25rem; line-height: 1.7; }
+  .project-desc { font-size: 14px; color: #b0b0c0; margin-bottom: 1.25rem; line-height: 1.8; }
 
   .screenshot-box { border-radius: 10px; overflow: hidden; margin-bottom: 1.25rem; background: var(--bg3); }
   .screenshot-box img { width: 100%; height: auto; display: block; border-radius: 10px; }
 
   .bullets { list-style: none; display: flex; flex-direction: column; gap: 10px; }
-  .bullets li { font-size: 13px; color: var(--muted); padding-left: 1.2rem; position: relative; line-height: 1.7; }
+  .bullets li { font-size: 14px; color: #b0b0c0; padding-left: 1.2rem; position: relative; line-height: 1.8; }
   .bullets li::before { content: '—'; position: absolute; left: 0; color: var(--accent); font-size: 11px; top: 3px; }
   .bullets li strong { color: var(--text); font-weight: 500; }
   .result-tag { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 500; color: #1D9E75; background: rgba(29,158,117,0.1); border: 1px solid rgba(29,158,117,0.2); border-radius: 6px; padding: 4px 10px; margin-top: 1rem; margin-right: 6px; }
@@ -141,17 +141,17 @@
   <div class="values-grid">
     <div class="value-card fade-in">
       <div class="value-icon">🏗</div>
-      <div class="value-title">구조를 먼저 생각</div>
+      <div class="value-title">구조를 먼저 생각합니다</div>
       <div class="value-desc">RCS 편집기의 단일 진입점, 발송 결과 조회의 매체 객체 구조, Tunit의 상태 전이 중앙화. 나중에 추가되어도 흔들리지 않는 구조를 우선합니다.</div>
     </div>
     <div class="value-card fade-in">
       <div class="value-icon">🔍</div>
-      <div class="value-title">문제에서 설계를 발전</div>
+      <div class="value-title">문제에서 설계를 발전시킵니다</div>
       <div class="value-desc">인덱스 기반 → ID 기반, 무한 호출 → 단일 진입점. 이론이 아닌 실제로 부딪히고 나서 구조를 바꾼 경험들입니다.</div>
     </div>
     <div class="value-card fade-in">
       <div class="value-icon">🔭</div>
-      <div class="value-title">풀스택 시각</div>
+      <div class="value-title">풀스택 시각으로 바라봅니다</div>
       <div class="value-desc">백엔드·인프라까지 직접 해봤기 때문에 API 설계와 성능 문제를 프론트 입장에서만 보지 않습니다.</div>
     </div>
   </div>
@@ -174,11 +174,12 @@
     <div class="screenshot-box">
       <img src="rcs_send_page.png" alt="RCS 편집기">
     </div>
-    <p class="project-desc">10개 이상의 UI 요소가 실시간으로 상호작용하는 RCS 메시지 편집기 신규 설계. 메시지 입력·미리보기 동기화·버튼 동적 구성 등 복잡한 도메인을 유지보수 가능한 구조로 구현.</p>
+    <p class="project-desc">10개 이상의 UI 요소가 실시간으로 상호작용하는 RCS 메시지 편집기를 신규 설계 및 구현. 메시지 입력, 실시간 미리보기 동기화, 버튼 동적 구성 등 복잡한 도메인 요구사항을 유지보수 가능한 구조로 풀어냈습니다. 순수 JavaScript 기반으로 컴포넌트 설계부터 렌더링 아키텍처까지 전반을 주도했습니다.</p>
     <ul class="bullets">
-      <li><strong>무한 호출 문제 해결</strong> — 메서드 간 상호 호출 문제를 단일 진입점 + 순차 호출 구조로 개선</li>
-      <li><strong>ID 기반 데이터 매핑</strong> — 인덱스 기반 슬라이드 관리의 매핑 오류를 고유 ID 구조로 해결</li>
-      <li><strong>사전 정의 객체 기반 렌더링</strong> — 버튼 유형별 입력 스펙을 객체로 정의하고 동적 HTML 생성</li>
+      <li><strong>무한 호출 문제 해결</strong> — 메시지 입력 시 글자수 체크·발송 유형 판별·선거/광고 여부 체크·미리보기 렌더링이 동시에 동작하는 구조에서 메서드 간 상호 호출로 무한 호출 발생. 각 메서드를 단일 책임으로 분리하고 단일 진입점에서 순차 호출하는 구조로 개선하여 해결.</li>
+      <li><strong>ID 기반 데이터 매핑</strong> — 인덱스 기반 슬라이드 관리에서 중간 삭제 시 재정렬로 인한 데이터 매핑 오류 발생. 시간+랜덤 숫자 기반 고유 ID로 전환하여 데이터 혼선 제거. 버튼 관리에도 동일 구조 적용.</li>
+      <li><strong>사전 정의 객체 기반 렌더링</strong> — URL/전화/지도/일정등록 등 버튼 유형별 입력 스펙을 객체로 사전 정의하고 유형에 따라 동적 HTML 생성. 미리보기 UI도 5가지 단위로 추상화하여 독립 렌더러로 분리.</li>
+      <li><strong>모듈 단일 진입점 설계</strong> — 버튼 관련 로직을 별도 JS 파일로 분리하고 외부에서는 addButton 등 단일 진입점만 호출하도록 설계. 버튼 개수 체크·생성·미리보기 호출을 내부에서 순차 처리.</li>
     </ul>
     <div>
       <span class="result-tag">✓ 2년간 4~5회 기획 변경, 렌더링 엔진 수정 없이 대응</span>
@@ -197,11 +198,11 @@
     <div class="screenshot-box">
       <img src="result_page.png" alt="발송결과 페이지">
     </div>
-    <p class="project-desc">문자 중심 발송 결과 조회 화면을 복수 매체로 확장. 발송 유형만 다른 동일 역할 함수 중복과 if-else 분기 폭증 문제를 공통 렌더링 파이프라인으로 재설계.</p>
+    <p class="project-desc">문자 중심으로 설계된 발송 결과 조회 화면을 카카오톡·RCS·쿠폰·팩스 등 복수 매체로 확장. 매체마다 화면과 로직이 기하급수적으로 늘어나는 구조적 문제를 발견하고 공통 렌더링 파이프라인으로 직접 재설계했습니다. 이후 팀원이 동일한 구조를 활용해 추가 매체를 도입하면서 설계의 확장성이 검증되었습니다.</p>
     <ul class="bullets">
-      <li><strong>매체 객체 기반 공통 파이프라인</strong> — API URI·마크업 함수 등을 매체 객체로 정의, 객체 교체만으로 동작</li>
-      <li><strong>검색 UI 자동 구성</strong> — 매체 객체의 키 유무에 따라 검색 조건 UI가 자동 구성</li>
-      <li><strong>공통화 사이드 이펙트 대응</strong> — 전체 매체 회귀 테스트 방식으로 검증 범위 확대, 이후 오류 0건</li>
+      <li><strong>매체 객체 기반 공통 파이프라인</strong> — API URI·응답 property 매핑·엑셀 컬럼·마크업 함수를 하나의 매체 객체로 정의하고 함수명을 일치시켜, 공통 파이프라인에서 매체 객체만 교체하면 동일하게 동작하는 구조로 재설계. 기존 if-else 분기 폭증 문제 해결.</li>
+      <li><strong>검색 UI 자동 구성</strong> — 매체마다 검색 조건 항목 자체가 달라 매체 객체에 검색 조건을 키-값으로 정의하고, 키 유무에 따라 검색 UI가 자동 구성되도록 설계. 신규 매체 추가 시 검색 화면 별도 구현 불필요.</li>
+      <li><strong>공통화 사이드 이펙트 대응</strong> — 신규 매체 추가 시 공통 구조 변경이 기존 매체에 사이드 이펙트를 유발하는 경험을 하면서, 이후 전체 매체 회귀 테스트 방식으로 검증 범위 확대. 이후 추가 오류 0건 유지.</li>
     </ul>
     <div>
       <span class="result-tag">✓ 직접 4개 매체 구현</span>
@@ -220,11 +221,11 @@
     <div class="screenshot-box">
       <img src="dashboard.png" alt="대시보드">
     </div>
-    <p class="project-desc">공기질·설비 데이터 모니터링 대시보드를 기획·개발·배포까지 1인 주도. 프론트엔드 외 백엔드, 클라우드 인프라, 리눅스 서버, 파이썬 센서 수집까지 전 영역 구축.</p>
+    <p class="project-desc">공기질·설비 데이터 모니터링 대시보드를 기획·디자인·개발·배포까지 1인으로 전 과정 주도. 프론트엔드 외에 백엔드(Spring Boot), 클라우드 인프라(Naver Cloud), 리눅스 서버 관리, 파이썬 센서 수집 프로그램까지 모르는 기술은 직접 학습하며 구축했습니다.</p>
     <ul class="bullets">
-      <li><strong>성능 최적화</strong> — 5개 분산 API 통합 + 쿼리 개선으로 초기 로딩 12초 → 4.9초 (59% 단축)</li>
-      <li><strong>데이터 파이프라인</strong> — 파이썬 센서 수집 → MongoDB → Spring Boot API → 프론트 실시간 반영</li>
-      <li><strong>권한 분리</strong> — 프론트 UI 제어 + 백엔드 API 접근 체크 이중 적용</li>
+      <li><strong>성능 최적화</strong> — 초기 로딩 시 5개의 분산된 API 호출 문제를 백엔드에서 단일 엔드포인트로 통합하고 쿼리 개선을 병행하여 초기 로딩 시간 12초 → 4.9초 (59% 단축).</li>
+      <li><strong>센서 데이터 파이프라인</strong> — 파이썬으로 센서 데이터를 수집해 MongoDB에 적재하고 Spring Boot API를 통해 프론트에서 실시간 조회. 전원 On/Off 명령이 실제 설비에 즉각 전달되도록 비동기 제어 인터페이스 구현.</li>
+      <li><strong>User/Admin 권한 분리</strong> — 프론트엔드 메뉴/버튼 노출 제어와 백엔드 API 접근 권한 체크를 이중으로 적용하여 설비 제어 범위와 데이터 접근 권한 보호.</li>
     </ul>
     <div>
       <span class="result-tag">✓ 초기 로딩 59% 단축</span>
@@ -234,14 +235,14 @@
 
   <div class="project-card fade-in">
     <div class="project-header">
-      <span class="project-title">Tunit Web</span>
+      <span class="project-title">Tunit — 1:1 레슨 매칭 / 예약 서비스</span>
       <span class="project-badge badge-side">사이드 프로젝트 · 진행 중</span>
     </div>
     <div class="project-stacks">
       <span class="stack">React 19</span><span class="stack">TypeScript</span><span class="stack">TanStack Query v5</span><span class="stack">Firebase Auth</span><span class="stack">Tailwind CSS</span>
     </div>
     <div class="screenshot-box">
-      <img src="IMG_3283.PNG" alt="tunit">
+      <img src="IMG_3283.png" alt="tunit">
     </div>
     <p class="project-desc">1:1 레슨 예약/결제 관리 서비스. 복잡한 예약 도메인을 프론트엔드 아키텍처 레벨에서 안정적으로 모델링하는 것을 목표로 설계.</p>
     <ul class="bullets">
